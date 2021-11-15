@@ -1,8 +1,11 @@
 import { lazy, Suspense } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Switch, Route } from 'react-router';
 import Container from './Container/Container';
 import Spiner from './Loader/Loader.js';
 import Appbar from './AppBar/AppBar';
+import { authOperations } from './redux/auth';
 
 const Homepage = lazy(() => import('./vievs/Homepage/Homepage' /* webpackChunkName: "Homepage" */));
 const Moviespage = lazy(() =>
@@ -21,6 +24,9 @@ const RegisterView = lazy(() =>
 );
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(authOperations.fetchCurrentUser()), [dispatch]);
+
   return (
     <Container>
       <Appbar />

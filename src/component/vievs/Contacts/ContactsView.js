@@ -7,7 +7,7 @@ import * as contactsOperations from '../../redux/contacts/contactsOperations';
 
 export default function ContactsView() {
   const dispatch = useDispatch();
-  useEffect(() => dispatch(contactsOperations.fetchContacts()));
+  useEffect(() => dispatch(contactsOperations.fetchContacts()), [dispatch]);
 
   return (
     <>

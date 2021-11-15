@@ -40,25 +40,15 @@ export default function LoginView() {
     <div>
       <h1>Страница логина</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
         <label style={styles.label}>
           Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
+          <input type="email" name="email" value={email} onChange={handleChange} />
         </label>
 
         <label style={styles.label}>
           Пароль
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
+          <input type="password" name="password" value={password} onChange={handleChange} />
         </label>
 
         <button type="submit">Войти</button>

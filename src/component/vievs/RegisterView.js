@@ -52,21 +52,18 @@ export default function RegisterView() {
 
         <label style={styles.label}>
           Почта
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
+          <input type="email" name="email" value={email} onChange={handleChange} />
         </label>
 
         <label style={styles.label}>
           Пароль
           <input
-            type="password"
+            type="password "
             name="password"
             value={password}
             onChange={handleChange}
+            // pattern="[0-9a-fA-F]{4,8}"
+            required
           />
         </label>
 
