@@ -6,6 +6,7 @@ import Container from './Container/Container';
 import Spiner from './Loader/Loader.js';
 import Appbar from './AppBar/AppBar';
 import { authOperations } from './redux/auth';
+import PrivateRoute from './UserMenu/PrivateRoute';
 
 const Homepage = lazy(() => import('./vievs/Homepage/Homepage' /* webpackChunkName: "Homepage" */));
 const Moviespage = lazy(() =>
@@ -15,12 +16,12 @@ const Moviespage = lazy(() =>
 const ContactsView = lazy(() =>
   import('./vievs/Contacts/ContactsView' /* webpackChunkName: "ContactsView" */),
 );
-const NotFoundView = lazy(() =>
-  import('./vievs/NotFoundView' /* webpackChunkName: "NotFoundView" */),
-);
 const LoginView = lazy(() => import('./vievs/LoginView' /* webpackChunkName: "LoginView" */));
 const RegisterView = lazy(() =>
   import('./vievs/RegisterView' /* webpackChunkName: "RegisterView" */),
+);
+const NotFoundView = lazy(() =>
+  import('./vievs/NotFoundView' /* webpackChunkName: "NotFoundView" */),
 );
 
 export default function App() {
@@ -44,9 +45,12 @@ export default function App() {
           <Route path="/register" exact>
             <RegisterView />
           </Route>
-          <Route path="/contacts" exact>
+          {/* <Route path="/contacts" exact>
             <ContactsView />
-          </Route>
+          </Route> */}
+          <PrivateRoute path="/contacts" exact>
+            <ContactsView />
+          </PrivateRoute>
           <Route>
             <NotFoundView />
           </Route>
