@@ -1,8 +1,5 @@
 .box {
-  border: 1px solid black;
-  padding-bottom: 10px;
-  border-radius: 10px;
-  background-color: rgb(233, 181, 181);
+  text-align: center;
 }
 .wrapp {
   margin-bottom: 10px;
@@ -11,6 +8,6 @@
   margin: 10px 0;
   border-radius: 10px;
   padding: 5px;
-  background-color: rgb(236, 129, 206);
+  background-color: rgb(242, 192, 128);
   cursor: pointer;
 }

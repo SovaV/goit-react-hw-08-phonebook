@@ -1,11 +1,14 @@
 .list {
   text-align: initial;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .item {
   border: 1px solid black;
   padding-bottom: 10px;
   border-radius: 10px;
-  background-color: rgb(233, 181, 181);
+  background-color: rgb(242, 192, 128);
   padding: 5px 20px 5px 10px;
   margin: 10px 0;
 }

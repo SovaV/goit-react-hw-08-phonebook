@@ -1,5 +1,6 @@
 body {
-  background-image: url(http://www.example.com/bck.png);
+  background-image: url(../img/bgc.jpg);
+  background-size: cover;
 }
 .container {
   width: 100%;
@@ -26,4 +27,10 @@ body {
     padding-left: 71px;
     padding-right: 71px;
   }
+}
+li {
+  list-style: none;
+}
+ul {
+  padding: 0;
 }
