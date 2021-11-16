@@ -14,17 +14,27 @@ const styles = {
     fontWeight: 700,
     marginRight: 12,
   },
+  email: {
+    fontWeight: 700,
+    marginRight: 12,
+  },
 };
 
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(authSelectors.getUsername);
+  const email = useSelector(authSelectors.getUseremail);
+
   const avatar = defaultAvatar;
 
   return (
     <div style={styles.container}>
-      <img src={avatar} alt="" width="32" style={styles.avatar} />
-      <span style={styles.name}>Добро пожаловать, {name}</span>
+      <img src={avatar} alt="" width="42" style={styles.avatar} />
+      <span style={styles.name}>
+        Привет, {name} <br />
+        {email}
+      </span>
+
       <button type="button" onClick={() => dispatch(authOperations.logOut())}>
         Выйти
       </button>
