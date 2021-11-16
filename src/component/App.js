@@ -8,6 +8,7 @@ import Appbar from './AppBar/AppBar';
 import { authOperations, authSelectors } from './redux/auth';
 import PrivateRoute from './UserMenu/PrivateRoute';
 import PublicRoute from './UserMenu/PublicRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Homepage = lazy(() => import('./vievs/Homepage/Homepage' /* webpackChunkName: "Homepage" */));
 // const Moviespage = lazy(() =>

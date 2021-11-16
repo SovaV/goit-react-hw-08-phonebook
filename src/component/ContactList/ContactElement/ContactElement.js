@@ -1,14 +1,24 @@
 import PropTypes from 'prop-types';
 import ce from './ContactElement.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
 
 const ContactsEl = ({ name, number, id, onDeleteContact }) => (
   <div className={ce.box}>
     <p>{name}</p>
     <p>: {number}</p>
-    <button className={ce.btn} type="button" onClick={() => onDeleteContact(id)}>
+    {/* <button className={ce.btn} type="button" onClick={() => onDeleteContact(id)}>
       <FaTrashAlt size="20px" />
-    </button>
+    </button> */}
+    <Button
+      variant="outline-primary"
+      size="lg"
+      className={ce.btn}
+      type="button"
+      onClick={() => onDeleteContact(id)}
+    >
+      <FaTrashAlt size="20px" />
+    </Button>
   </div>
 );
 ContactsEl.propTypes = {

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
+import { Button } from 'react-bootstrap';
 
 const styles = {
   form: {
@@ -19,7 +20,8 @@ export default function RegisterView() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = e => {
+    const { name, value } = e.target;
     switch (name) {
       case 'name':
         return setName(value);
@@ -34,6 +36,9 @@ export default function RegisterView() {
 
   const handleSubmit = e => {
     e.preventDefault();
+    if (password.length < 7) {
+      alert('Enter more than 7 characters');
+    }
     dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -44,15 +49,15 @@ export default function RegisterView() {
     <div>
       <h1>Страница регистрации</h1>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+      <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
         <label style={styles.label}>
           Имя
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input type="text" name="name" value={name} onChange={handleChange} required />
         </label>
 
         <label style={styles.label}>
           Почта
-          <input type="email" name="email" value={email} onChange={handleChange} />
+          <input type="email" name="email" value={email} onChange={handleChange} required />
         </label>
 
         <label style={styles.label}>
@@ -63,11 +68,14 @@ export default function RegisterView() {
             value={password}
             onChange={handleChange}
             // pattern="[0-9a-fA-F]{4,8}"
-            required
+            // required
           />
         </label>
 
-        <button type="submit">Зарегистрироваться</button>
+        {/* <button type="submit">Зарегистрироваться</button> */}
+        <Button variant="outline-primary" size="lg" type="submit">
+          Зарегистрироваться
+        </Button>
       </form>
     </div>
   );
