@@ -9,11 +9,10 @@ import { authOperations, authSelectors } from './redux/auth';
 import PrivateRoute from './UserMenu/PrivateRoute';
 import PublicRoute from './UserMenu/PublicRoute';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Homepage = lazy(() => import('./vievs/Homepage/Homepage' /* webpackChunkName: "Homepage" */));
-// const Moviespage = lazy(() =>
-//   import('./vievs/Moviespage/Moviespage' /* webpackChunkName: "Moviespage" */),
-// );
 
 const ContactsView = lazy(() =>
   import('./vievs/Contacts/ContactsView' /* webpackChunkName: "ContactsView" */),
@@ -56,6 +55,7 @@ export default function App() {
             </Route>
           </Switch>
         </Suspense>
+        <ToastContainer autoClose={5000} position="top-center" theme="colored" />
       </Container>
     )
   );

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as contactsOperations from '../redux/contacts/contactsOperations';
 import { getContacts } from '../redux/contacts/ContactSelector';
 import p from './ContactForm.module.css';
+import { Button, Form } from 'react-bootstrap';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
@@ -10,7 +11,7 @@ export default function ContactForm() {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  const hendleChange = e => {
+  const handleChange = e => {
     const { name, value } = e.currentTarget;
 
     switch (name) {
@@ -51,34 +52,64 @@ export default function ContactForm() {
 
   return (
     <form className={p.box} onSubmit={hendleSubmit}>
-      <label className={p.wrapp}>
-        <p>Name</p>
-        <input
+      <Form.Floating className="mb-3">
+        <Form.Control
+          id="floatingNameCustom"
+          placeholder="name"
           value={name}
-          onChange={hendleChange}
+          onChange={handleChange}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
         />
-      </label>
-      <label className={p.wrapp}>
-        <p>Number</p>
+        <label htmlFor="floatingNameCustom">Name</label>
+      </Form.Floating>
+      {/* <label className={p.wrapp}>
+        <p>Name</p>
         <input
+          value={name}
+          onChange={handleChange}
+          type="text"
+          name="name"
+          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
+          required
+        />
+      </label> */}
+      <Form.Floating className="mb-3">
+        <Form.Control
+          id="floatingNameCustom"
+          placeholder="Number"
           value={number}
-          onChange={hendleChange}
+          onChange={handleChange}
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
         />
-      </label>
-      <br />
-      <button className={p.btn} type="submit">
+        <label htmlFor="floatingNameCustom">Number</label>
+      </Form.Floating>
+      {/* <label className={p.wrapp}>
+        <p>Number</p>
+        <input
+          value={number}
+          onChange={handleChange}
+          type="tel"
+          name="number"
+          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
+          required
+        />
+      </label> */}
+      {/* <button className={p.btn} type="submit">
         Add contact
-      </button>
+      </button> */}
+      <Button variant="outline-primary" type="submit" size="lg">
+        Add contact
+      </Button>
     </form>
   );
 }

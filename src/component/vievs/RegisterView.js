@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 const styles = {
   form: {
@@ -37,7 +38,7 @@ export default function RegisterView() {
   const handleSubmit = e => {
     e.preventDefault();
     if (password.length < 7) {
-      alert('Enter more than 7 characters');
+      return toast.info('Enter more than 7 characters');
     }
     dispatch(authOperations.register({ name, email, password }));
     setName('');
@@ -50,30 +51,55 @@ export default function RegisterView() {
       <h1>Страница регистрации</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
-        <label style={styles.label}>
+        <Form.Floating className="mb-3">
+          <Form.Control
+            id="floatingNameCustom"
+            type="text"
+            placeholder="name"
+            name="name"
+            value={name}
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingNameCustom">Name</label>
+        </Form.Floating>
+        <Form.Floating className="mb-3">
+          <Form.Control
+            id="floatingInputCustom"
+            type="email"
+            placeholder="name@example.com"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingInputCustom">Email address</label>
+        </Form.Floating>
+        <Form.Floating className="mb-3">
+          <Form.Control
+            id="floatingPasswordCustom"
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingPasswordCustom">Password</label>
+        </Form.Floating>
+        {/* <label style={styles.label}>
           Имя
           <input type="text" name="name" value={name} onChange={handleChange} required />
         </label>
 
-        <label style={styles.label}>
+        <label style={styles.label} htmlFor="floatingInputCustom">
           Почта
           <input type="email" name="email" value={email} onChange={handleChange} required />
         </label>
 
         <label style={styles.label}>
           Пароль
-          <input
-            type="password "
-            name="password"
-            value={password}
-            onChange={handleChange}
-            // pattern="[0-9a-fA-F]{4,8}"
-            // required
-          />
-        </label>
+          <input type="password" name="password" value={password} onChange={handleChange} />
+        </label> */}
 
-        {/* <button type="submit">Зарегистрироваться</button> */}
-        <Button variant="outline-primary" size="lg" type="submit">
+        <Button variant="outline-primary" type="submit">
           Зарегистрироваться
         </Button>
       </form>

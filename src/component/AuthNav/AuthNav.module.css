@@ -1,0 +1,18 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 18px;
+}
+
+.activeLink {
+  composes: link;
+  color: #2196f3;
+}
+nav {
+  align-items: center;
+  text-align: center;
+  box-shadow: 4px 13px 8px 0px rgba(34, 60, 80, 0.2);
+}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../redux/auth';
-import { Button } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 
 const styles = {
   form: {
@@ -42,7 +42,29 @@ export default function LoginView() {
       <h1>Страница логина</h1>
 
       <form onSubmit={handleSubmit} style={styles.form} autoComplete="on">
-        <label style={styles.label}>
+        <Form.Floating className="mb-3">
+          <Form.Control
+            id="floatingInputCustom"
+            type="email"
+            placeholder="name@example.com"
+            name="email"
+            value={email}
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingInputCustom">Email address</label>
+        </Form.Floating>
+        <Form.Floating className="mb-3">
+          <Form.Control
+            id="floatingPasswordCustom"
+            type="password"
+            placeholder="Password"
+            name="password"
+            value={password}
+            onChange={handleChange}
+          />
+          <label htmlFor="floatingPasswordCustom">Password</label>
+        </Form.Floating>
+        {/* <label style={styles.label}>
           Почта
           <input type="email" name="email" value={email} onChange={handleChange} />
         </label>
@@ -50,10 +72,9 @@ export default function LoginView() {
         <label style={styles.label}>
           Пароль
           <input type="password" name="password" value={password} onChange={handleChange} />
-        </label>
+        </label> */}
 
-        {/* <button type="submit">Войти</button> */}
-        <Button variant="outline-primary" size="lg" type="submit">
+        <Button variant="outline-primary" type="submit">
           Войти
         </Button>
       </form>

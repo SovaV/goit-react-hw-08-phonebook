@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from '../redux/auth';
+import { Button, Form } from 'react-bootstrap';
 import defaultAvatar from '../img/avatar.jpg';
 
 const styles = {
@@ -35,9 +36,13 @@ export default function UserMenu() {
         {email}
       </span>
 
-      <button type="button" onClick={() => dispatch(authOperations.logOut())}>
-        Выйти
-      </button>
+      <Button
+        variant="outline-primary"
+        type="button"
+        onClick={() => dispatch(authOperations.logOut())}
+      >
+        EXIT
+      </Button>
     </div>
   );
 }
