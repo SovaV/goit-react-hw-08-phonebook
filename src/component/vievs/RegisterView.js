@@ -37,7 +37,9 @@ export default function RegisterView() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    if (password.length < 7) {
+    if ((name === '', email === '')) {
+      return toast.warn('Fill in all fields');
+    } else if (password.length < 7) {
       return toast.info('Enter more than 7 characters');
     }
     dispatch(authOperations.register({ name, email, password }));
@@ -60,7 +62,7 @@ export default function RegisterView() {
             value={name}
             onChange={handleChange}
           />
-          <label htmlFor="floatingNameCustom">Name</label>
+          <label htmlFor="floatingNameCustom">Имя</label>
         </Form.Floating>
         <Form.Floating className="mb-3">
           <Form.Control
@@ -71,7 +73,7 @@ export default function RegisterView() {
             value={email}
             onChange={handleChange}
           />
-          <label htmlFor="floatingInputCustom">Email address</label>
+          <label htmlFor="floatingInputCustom">Почта</label>
         </Form.Floating>
         <Form.Floating className="mb-3">
           <Form.Control
@@ -82,7 +84,7 @@ export default function RegisterView() {
             value={password}
             onChange={handleChange}
           />
-          <label htmlFor="floatingPasswordCustom">Password</label>
+          <label htmlFor="floatingPasswordCustom">Пароль</label>
         </Form.Floating>
         {/* <label style={styles.label}>
           Имя

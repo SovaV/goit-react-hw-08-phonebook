@@ -51,7 +51,7 @@ export default function LoginView() {
             value={email}
             onChange={handleChange}
           />
-          <label htmlFor="floatingInputCustom">Email address</label>
+          <label htmlFor="floatingInputCustom">Почта</label>
         </Form.Floating>
         <Form.Floating className="mb-3">
           <Form.Control
@@ -62,7 +62,7 @@ export default function LoginView() {
             value={password}
             onChange={handleChange}
           />
-          <label htmlFor="floatingPasswordCustom">Password</label>
+          <label htmlFor="floatingPasswordCustom">Пароль</label>
         </Form.Floating>
         {/* <label style={styles.label}>
           Почта

@@ -8,12 +8,12 @@ export default function Navigation() {
   return (
     <nav>
       <NavLink exact to="/" className={styles.link} activeClassName={styles.activeLink}>
-        Home
+        Главная
       </NavLink>
 
       {isLoggedIn && (
         <NavLink to="/contacts" className={styles.link} activeClassName={styles.activeLink}>
-          Contacts
+          Контакты
         </NavLink>
       )}
     </nav>
