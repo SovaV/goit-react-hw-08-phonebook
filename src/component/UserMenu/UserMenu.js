@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { authSelectors, authOperations } from '../redux/auth';
-import { Button, Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import defaultAvatar from '../img/avatar.jpg';
 
 const styles = {
@@ -9,15 +9,19 @@ const styles = {
     alignItems: 'center',
   },
   avatar: {
-    marginRight: 4,
+    marginRight: 14,
   },
   name: {
     fontWeight: 700,
     marginRight: 12,
+    fontSize: 'larger',
+    fontFamily: 'cursive',
   },
   email: {
     fontWeight: 700,
     marginRight: 12,
+    fontSize: 'larger',
+    fontFamily: 'cursive',
   },
 };
 
@@ -30,7 +34,7 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
-      <img src={avatar} alt="" width="42" style={styles.avatar} />
+      <img src={avatar} alt="" width="52" style={styles.avatar} />
       <span style={styles.name}>
         Привет, {name} <br />
         {email}

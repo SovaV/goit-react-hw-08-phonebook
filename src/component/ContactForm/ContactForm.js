@@ -66,18 +66,6 @@ export default function ContactForm() {
         />
         <label htmlFor="floatingNameCustom">Name</label>
       </Form.Floating>
-      {/* <label className={p.wrapp}>
-        <p>Name</p>
-        <input
-          value={name}
-          onChange={handleChange}
-          type="text"
-          name="name"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-          required
-        />
-      </label> */}
       <Form.Floating className="mb-3">
         <Form.Control
           id="floatingNameCustom"
